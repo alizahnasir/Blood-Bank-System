@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #FFF5F5;
+  --color-surface: #FFFFFF;
+  --color-primary: #9B2335;
+  --color-primary-hover: #7A1A28;
+  --color-accent: #E8829A;
+  --color-soft: #F9D5DC;
+  --color-muted: #F2E4E6;
+  --color-border: #E8C5CB;
+  --color-text: #2D1B1E;
+  --color-text-muted: #7A5560;
+  --color-success: #2E7D32;
+  --color-warning: #E65100;
+  --color-danger: #9B2335;
+}
+
+body {
+  @apply font-sans font-normal;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border bg-surface shadow-sm;
+    border-color: var(--color-border);
+  }
+
+  .btn-primary {
+    @apply rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors;
+    background-color: var(--color-primary);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-primary:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .btn-secondary {
+    @apply rounded-lg border px-4 py-2 text-sm font-semibold transition-colors;
+    border-color: var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    background-color: var(--color-muted);
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border px-3 py-2 text-sm outline-none transition-colors;
+    border-color: var(--color-border);
+    background-color: var(--color-muted);
+    color: var(--color-text);
+  }
+
+  .input-field:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .select-field {
+    @apply input-field;
+  }
+}
